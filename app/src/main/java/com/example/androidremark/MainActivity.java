@@ -11,6 +11,7 @@ import com.example.androidremark.bean.MainMenuNameBean;
 import com.example.androidremark.ui.chart.cake.ChartActivity;
 import com.example.androidremark.ui.flow.FlowLayoutActivity;
 import com.example.androidremark.ui.payment.ALiPayActivity;
+import com.example.androidremark.ui.popup.PopupTestActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +90,6 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
             case 1:
                 switch (view.getId()) {
                     case R.id.tv_view_one:
-                        //launchActivity(ChartActivity.class, null);
                         break;
                     case R.id.tv_view_two:
                         //流式布局
@@ -107,6 +107,17 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
             case 4:
                 break;
             case 5:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //弹窗
+                        launchActivity(PopupTestActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                }
                 break;
             default:
                 break;

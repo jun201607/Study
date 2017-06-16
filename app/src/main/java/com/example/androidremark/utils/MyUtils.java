@@ -198,8 +198,7 @@ public class MyUtils {
      * @param context
      * @return
      */
-    public static int dp2px(Context context, float dpVal)
-    {
+    public static int dp2px(Context context, float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dpVal, context.getResources().getDisplayMetrics());
     }
@@ -210,8 +209,7 @@ public class MyUtils {
      * @param context
      * @return
      */
-    public static int sp2px(Context context, float spVal)
-    {
+    public static int sp2px(Context context, float spVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
                 spVal, context.getResources().getDisplayMetrics());
     }
@@ -223,8 +221,7 @@ public class MyUtils {
      * @param pxVal
      * @return
      */
-    public static float px2dp(Context context, float pxVal)
-    {
+    public static float px2dp(Context context, float pxVal) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (pxVal / scale);
     }
@@ -235,8 +232,7 @@ public class MyUtils {
      * @param pxVal
      * @return
      */
-    public static float px2sp(Context context, float pxVal)
-    {
+    public static float px2sp(Context context, float pxVal) {
         return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
     }
 
@@ -248,8 +244,7 @@ public class MyUtils {
      *
      * @return
      */
-    public static boolean isSDCardEnable()
-    {
+    public static boolean isSDCardEnable() {
         return Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED);
 
@@ -260,8 +255,7 @@ public class MyUtils {
      *
      * @return
      */
-    public static String getSDCardPath()
-    {
+    public static String getSDCardPath() {
         return Environment.getExternalStorageDirectory().getAbsolutePath()
                 + File.separator;
     }
@@ -271,10 +265,8 @@ public class MyUtils {
      *
      * @return
      */
-    public static long getSDCardAllSize()
-    {
-        if (isSDCardEnable())
-        {
+    public static long getSDCardAllSize() {
+        if (isSDCardEnable()) {
             StatFs stat = new StatFs(getSDCardPath());
             // 获取空闲的数据块的数量
             long availableBlocks = (long) stat.getAvailableBlocks() - 4;
@@ -291,14 +283,11 @@ public class MyUtils {
      * @param filePath
      * @return 容量字节 SDCard可用空间，内部存储可用空间
      */
-    public static long getFreeBytes(String filePath)
-    {
+    public static long getFreeBytes(String filePath) {
         // 如果是sd卡的下的路径，则获取sd卡可用容量
-        if (filePath.startsWith(getSDCardPath()))
-        {
+        if (filePath.startsWith(getSDCardPath())) {
             filePath = getSDCardPath();
-        } else
-        {// 如果是内部存储的路径，则获取内存存储的可用容量
+        } else {// 如果是内部存储的路径，则获取内存存储的可用容量
             filePath = Environment.getDataDirectory().getAbsolutePath();
         }
         StatFs stat = new StatFs(filePath);
@@ -311,8 +300,7 @@ public class MyUtils {
      *
      * @return
      */
-    public static String getRootDirectoryPath()
-    {
+    public static String getRootDirectoryPath() {
         return Environment.getRootDirectory().getAbsolutePath();
     }
 
@@ -324,8 +312,7 @@ public class MyUtils {
      * @param context
      * @return
      */
-    public static int getScreenWidth(Context context)
-    {
+    public static int getScreenWidth(Context context) {
         WindowManager wm = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
@@ -339,8 +326,7 @@ public class MyUtils {
      * @param context
      * @return
      */
-    public static int getScreenHeight(Context context)
-    {
+    public static int getScreenHeight(Context context) {
         WindowManager wm = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
@@ -354,19 +340,16 @@ public class MyUtils {
      * @param context
      * @return
      */
-    public static int getStatusHeight(Context context)
-    {
+    public static int getStatusHeight(Context context) {
 
         int statusHeight = -1;
-        try
-        {
+        try {
             Class<?> clazz = Class.forName("com.android.internal.R$dimen");
             Object object = clazz.newInstance();
             int height = Integer.parseInt(clazz.getField("status_bar_height")
                     .get(object).toString());
             statusHeight = context.getResources().getDimensionPixelSize(height);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return statusHeight;
@@ -378,8 +361,7 @@ public class MyUtils {
      * @param activity
      * @return
      */
-    public static Bitmap snapShotWithStatusBar(Activity activity)
-    {
+    public static Bitmap snapShotWithStatusBar(Activity activity) {
         View view = activity.getWindow().getDecorView();
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
@@ -399,8 +381,7 @@ public class MyUtils {
      * @param activity
      * @return
      */
-    public static Bitmap snapShotWithoutStatusBar(Activity activity)
-    {
+    public static Bitmap snapShotWithoutStatusBar(Activity activity) {
         View view = activity.getWindow().getDecorView();
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
@@ -424,17 +405,14 @@ public class MyUtils {
     /**
      * 获取应用程序名称
      */
-    public static String getAppName(Context context)
-    {
-        try
-        {
+    public static String getAppName(Context context) {
+        try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
                     context.getPackageName(), 0);
             int labelRes = packageInfo.applicationInfo.labelRes;
             return context.getResources().getString(labelRes);
-        } catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -446,17 +424,14 @@ public class MyUtils {
      * @param context
      * @return 当前应用的版本名称
      */
-    public static String getVersionName(Context context)
-    {
-        try
-        {
+    public static String getVersionName(Context context) {
+        try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
                     context.getPackageName(), 0);
             return packageInfo.versionName;
 
-        } catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -467,13 +442,10 @@ public class MyUtils {
     /**
      * 打卡软键盘
      *
-     * @param mEditText
-     *            输入框
-     * @param mContext
-     *            上下文
+     * @param mEditText 输入框
+     * @param mContext  上下文
      */
-    public static void openKeybord(EditText mEditText, Context mContext)
-    {
+    public static void openKeybord(EditText mEditText, Context mContext) {
         InputMethodManager imm = (InputMethodManager) mContext
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mEditText, InputMethodManager.RESULT_SHOWN);
@@ -484,13 +456,10 @@ public class MyUtils {
     /**
      * 关闭软键盘
      *
-     * @param mEditText
-     *            输入框
-     * @param mContext
-     *            上下文
+     * @param mEditText 输入框
+     * @param mContext  上下文
      */
-    public static void closeKeybord(EditText mEditText, Context mContext)
-    {
+    public static void closeKeybord(EditText mEditText, Context mContext) {
         InputMethodManager imm = (InputMethodManager) mContext
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -506,20 +475,16 @@ public class MyUtils {
      * @param context
      * @return
      */
-    public static boolean isConnected(Context context)
-    {
+    public static boolean isConnected(Context context) {
 
         ConnectivityManager connectivity = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        if (null != connectivity)
-        {
+        if (null != connectivity) {
 
             NetworkInfo info = connectivity.getActiveNetworkInfo();
-            if (null != info && info.isConnected())
-            {
-                if (info.getState() == NetworkInfo.State.CONNECTED)
-                {
+            if (null != info && info.isConnected()) {
+                if (info.getState() == NetworkInfo.State.CONNECTED) {
                     return true;
                 }
             }
@@ -530,8 +495,7 @@ public class MyUtils {
     /**
      * 判断是否是wifi连接
      */
-    public static boolean isWifi(Context context)
-    {
+    public static boolean isWifi(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -544,13 +508,23 @@ public class MyUtils {
     /**
      * 打开网络设置界面
      */
-    public static void openSetting(Activity activity)
-    {
+    public static void openSetting(Activity activity) {
         Intent intent = new Intent("/");
         ComponentName cm = new ComponentName("com.android.settings",
                 "com.android.settings.WirelessSettings");
         intent.setComponent(cm);
         intent.setAction("android.intent.action.VIEW");
         activity.startActivityForResult(intent, 0);
+    }
+
+    /**
+     * 测量View的宽高
+     *
+     * @param view View
+     */
+    public static void measureWidthAndHeight(View view) {
+        int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(w, h);
     }
 }
