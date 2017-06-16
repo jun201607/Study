@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.androidremark.base.BaseActivity;
 import com.example.androidremark.bean.MainMenuNameBean;
+import com.example.androidremark.ui.contacts.ContactsActivity;
 import com.example.androidremark.ui.chart.cake.ChartActivity;
 import com.example.androidremark.ui.flow.FlowLayoutActivity;
 import com.example.androidremark.ui.payment.ALiPayActivity;
@@ -56,6 +57,7 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                 {"贝塞尔曲线", "基本用法示例", "", "", ""},
                 {"图片加载", "Volley(TODO)", "Glide(TODO)", "", "", ""},
                 {"弹窗", "PopupWindow", "", "", "", ""},
+                {"通讯录", "魅族通讯录", "", "", "", ""},
         };
         for (String[] anArray : array) {
             list.add(new MainMenuNameBean(anArray[0], anArray[1], anArray[2], anArray[3], anArray[4]));
@@ -111,6 +113,19 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                     case R.id.tv_view_one:
                         //弹窗
                         launchActivity(PopupTestActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                }
+                break;
+            case 6:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //仿魅族通讯录
+                        launchActivity(ContactsActivity.class, null);
                         break;
                     case R.id.tv_view_two:
                         break;
