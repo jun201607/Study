@@ -13,6 +13,7 @@ import com.example.androidremark.ui.chart.cake.ChartActivity;
 import com.example.androidremark.ui.flow.FlowLayoutActivity;
 import com.example.androidremark.ui.payment.ALiPayActivity;
 import com.example.androidremark.ui.popup.PopupTestActivity;
+import com.example.androidremark.ui.qq.SwipeMenuActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                 {"贝塞尔曲线", "基本用法示例", "", "", ""},
                 {"图片加载", "Volley(TODO)", "Glide(TODO)", "", "", ""},
                 {"弹窗", "PopupWindow", "", "", "", ""},
-                {"通讯录", "魅族通讯录", "", "", "", ""},
+                {"其他", "魅族通讯录", "QQ侧滑删除", "", "", ""},
         };
         for (String[] anArray : array) {
             list.add(new MainMenuNameBean(anArray[0], anArray[1], anArray[2], anArray[3], anArray[4]));
@@ -128,6 +129,8 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(ContactsActivity.class, null);
                         break;
                     case R.id.tv_view_two:
+                        //QQ侧滑删除
+                        launchActivity(SwipeMenuActivity.class, null);
                         break;
                     case R.id.tv_view_three:
                         break;

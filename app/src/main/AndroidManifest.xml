@@ -20,7 +20,8 @@
         <activity android:name=".ui.payment.ALiPayActivity" />
         <activity android:name=".ui.flow.FlowLayoutActivity" />
         <activity android:name=".ui.contacts.ContactsActivity" />
-        <activity android:name=".ui.popup.PopupTestActivity"></activity>
+        <activity android:name=".ui.popup.PopupTestActivity" />
+        <activity android:name=".ui.qq.SwipeMenuActivity"></activity>
     </application>
 
 </manifest>
