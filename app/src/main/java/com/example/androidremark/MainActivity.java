@@ -8,12 +8,17 @@ import android.view.View;
 
 import com.example.androidremark.base.BaseActivity;
 import com.example.androidremark.bean.MainMenuNameBean;
+import com.example.androidremark.statusbarutil.StatusBarActivity;
 import com.example.androidremark.ui.contacts.ContactsActivity;
 import com.example.androidremark.ui.chart.cake.ChartActivity;
 import com.example.androidremark.ui.flow.FlowLayoutActivity;
+import com.example.androidremark.ui.imageview.ScratchActivity;
 import com.example.androidremark.ui.payment.ALiPayActivity;
+import com.example.androidremark.ui.permission.PermissionActivity;
 import com.example.androidremark.ui.popup.PopupTestActivity;
 import com.example.androidremark.ui.qq.SwipeMenuActivity;
+import com.example.androidremark.ui.textview.StrikeTextViewActivity;
+import com.example.androidremark.widget.StrikeTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,13 +57,14 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
     private void initData() {
         List<MainMenuNameBean> list = new ArrayList<>();
         String[][] array = {
-                {"自定义View", "饼形图", "支付完成", "", ""},
+                {"自定义View", "饼形图", "支付完成", "橡皮擦", "划线textview"},
                 {"自定义ViewGroup", "", "流式布局", "", ""},
                 {"属性动画+Path", "PathMeasure", "Path+SVG", "ViewPropertyAnimator", ""},
                 {"贝塞尔曲线", "基本用法示例", "", "", ""},
                 {"图片加载", "Volley(TODO)", "Glide(TODO)", "", "", ""},
                 {"弹窗", "PopupWindow", "", "", "", ""},
-                {"其他", "魅族通讯录", "QQ侧滑删除", "", "", ""},
+                {"状态栏", "状态栏", "", "", "", ""},
+                {"其他", "魅族通讯录", "QQ侧滑删除", "权限管理", "调用相机剪裁", ""},
         };
         for (String[] anArray : array) {
             list.add(new MainMenuNameBean(anArray[0], anArray[1], anArray[2], anArray[3], anArray[4]));
@@ -85,8 +91,10 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(ALiPayActivity.class, null);
                         break;
                     case R.id.tv_view_three:
+                        launchActivity(ScratchActivity.class, null);
                         break;
                     case R.id.tv_view_four:
+                        launchActivity(StrikeTextViewActivity.class, null);
                         break;
                 }
                 break;
@@ -125,6 +133,20 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
             case 6:
                 switch (view.getId()) {
                     case R.id.tv_view_one:
+                        //状态栏
+                        launchActivity(StatusBarActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                        break;
+                }
+                break;
+            case 7:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
                         //仿魅族通讯录
                         launchActivity(ContactsActivity.class, null);
                         break;
@@ -133,8 +155,12 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(SwipeMenuActivity.class, null);
                         break;
                     case R.id.tv_view_three:
+                        //权限
+                        launchActivity(PermissionActivity.class, null);
                         break;
                     case R.id.tv_view_four:
+
+                        break;
                 }
                 break;
             default:

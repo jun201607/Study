@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidremark">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_logo"
@@ -21,7 +23,18 @@
         <activity android:name=".ui.flow.FlowLayoutActivity" />
         <activity android:name=".ui.contacts.ContactsActivity" />
         <activity android:name=".ui.popup.PopupTestActivity" />
-        <activity android:name=".ui.qq.SwipeMenuActivity"></activity>
+        <activity android:name=".ui.qq.SwipeMenuActivity" />
+        <activity android:name=".ui.permission.PermissionActivity" />
+        <activity android:name=".ui.camera.CameraActivity" />
+        <activity android:name=".ui.imageview.ScratchActivity" />
+        <activity android:name=".ui.textview.StrikeTextViewActivity" />
+        <activity android:name=".ui.layout.CoordinatorLayoutActivity"/>
+        <activity android:name=".statusbarutil.StatusBarActivity"/>
+        <activity android:name=".statusbarutil.UseInFragmentActivity"/>
+        <activity android:name=".statusbarutil.ColorStatusBarActivity"/>
+        <activity android:name=".statusbarutil.ImageStatusBarActivity"/>
+        <activity android:name=".statusbarutil.ImageViewActivity"/>
+        <activity android:name=".statusbarutil.SwipeBackActivity"/>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.androidremark.utils;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,6 +14,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.os.StatFs;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
@@ -526,5 +528,21 @@ public class MyUtils {
         int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         view.measure(w, h);
+    }
+
+    /********************************权限相关*********************************/
+
+
+    /**
+     * 在点击过后过后再进行一次判断，判断点击前是否已经获取了该权限或者用户在手机设置中手动拒绝了
+     * 该权限，如果是后者应该给出相应的提示
+     *
+     * @param context
+     * @param permission 要判断的权限
+     * @return
+     */
+    public static boolean isHavePermission(Context context, String permission) {
+        return ContextCompat.checkSelfPermission(context, permission) !=
+                PackageManager.PERMISSION_GRANTED;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.androidremark.base;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.example.androidremark.R;
+import com.example.androidremark.utils.StatusBarUtil;
 
 /**
  * Created by caobin on 2017/1/4.
@@ -21,7 +23,17 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+    }
+
+
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        setStatusBar();
+    }
+
+    protected void setStatusBar() {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
     }
 
     /**
@@ -79,5 +91,17 @@ public class BaseActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    /**
+     * 弹出AlertDialog
+     *
+     * @param msg
+     */
+
+    protected void showAlert(String msg) {
+        new AlertDialog.Builder(this).setIcon(R.drawable.app_logo).setTitle("温馨提示").setMessage(msg)
+                .setPositiveButton("确定", null).create().show();
     }
 }
