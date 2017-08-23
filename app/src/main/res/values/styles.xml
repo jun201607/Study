@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/green_deep_color</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
@@ -12,6 +12,7 @@
         <item name="android:windowEnterAnimation">@anim/push_scale_in</item>
         <item name="android:windowExitAnimation">@anim/push_scale_out</item>
     </style>
+
     <style name="AnimUp" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
@@ -25,5 +26,41 @@
     <style name="AnimRight" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/push_scale_right_in</item>
         <item name="android:windowExitAnimation">@anim/push_scale_right_out</item>
+    </style>
+    <!--titleBar样式  点击效果-->
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionBarItemBackground">@drawable/toolbarItemBackground</item>
+        <item name="selectableItemBackground">@drawable/toolbarItemBackground</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <!--Alerter-->
+    <style name="AlertStyle" parent="@android:style/Widget">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/alerter_alert_min_height</item>
+        <item name="android:maxHeight">@dimen/alerter_alert_max_height</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">top</item>
+        <item name="android:paddingTop">@dimen/alerter_alert_padding</item>
+    </style>
+
+    <style name="AlertTextAppearance">
+        <item name="android:textColor">@color/alert_default_text_color</item>
+    </style>
+
+    <style name="AlertTextAppearance.Title">
+        <item name="android:textSize">@dimen/alerter_text_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AlertTextAppearance.Text">
+        <item name="android:textSize">@dimen/alerter_text_small</item>
+    </style>
+
+    <style name="ExampleButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_margin">@dimen/alerter_padding_small</item>
     </style>
 </resources>

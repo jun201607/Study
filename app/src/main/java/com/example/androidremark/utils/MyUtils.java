@@ -1,6 +1,5 @@
 package com.example.androidremark.utils;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;

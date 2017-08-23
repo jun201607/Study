@@ -28,13 +28,16 @@
         <activity android:name=".ui.camera.CameraActivity" />
         <activity android:name=".ui.imageview.ScratchActivity" />
         <activity android:name=".ui.textview.StrikeTextViewActivity" />
-        <activity android:name=".ui.layout.CoordinatorLayoutActivity"/>
-        <activity android:name=".statusbarutil.StatusBarActivity"/>
-        <activity android:name=".statusbarutil.UseInFragmentActivity"/>
-        <activity android:name=".statusbarutil.ColorStatusBarActivity"/>
-        <activity android:name=".statusbarutil.ImageStatusBarActivity"/>
-        <activity android:name=".statusbarutil.ImageViewActivity"/>
-        <activity android:name=".statusbarutil.SwipeBackActivity"/>
+        <activity android:name=".ui.layout.CoordinatorLayoutActivity" />
+        <activity android:name=".statusbarutil.StatusBarActivity" />
+        <activity android:name=".statusbarutil.UseInFragmentActivity" />
+        <activity android:name=".statusbarutil.ColorStatusBarActivity" />
+        <activity android:name=".statusbarutil.ImageStatusBarActivity" />
+        <activity android:name=".statusbarutil.ImageViewActivity" />
+        <activity android:name=".statusbarutil.SwipeBackActivity" />
+        <activity android:name=".ui.qq.QQZoneActivity" />
+        <activity android:name=".ui.alerter.ExampleActivity" />
+        <activity android:name=".ui.layout.WangYiActivity"></activity>
     </application>
 
 </manifest>

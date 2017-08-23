@@ -84,4 +84,15 @@
     <color name="title_background_color">#fcb840</color>
     <color name="light_yellow">#f68b2b</color>
     <!--888888888888888888888888888888888888888888888888-->
+    <!--手势密码-->
+    <color name="grey_b2b2b2">#B2B2B2</color>
+    <color name="blue_78d2f6">#78D2F6</color>
+    <color name="blue_01aaee">#01AAEE</color>
+    <color name="blue_00aaee">#00AAEE</color>
+    <color name="red_f3323b">#F3323B</color>
+
+    <color name="alerter_default_success_background">#4CAF50</color>
+    <color name="alert_default_error_background">#F44336</color>
+    <color name="alert_default_text_color">@android:color/white</color>
+    <color name="alert_default_icon_color">@android:color/white</color>
 </resources>
