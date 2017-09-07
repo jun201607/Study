@@ -25,13 +25,31 @@
 
     <!--Alerter-->
     <declare-styleable name="Alerter">
-        <attr name="alertStyle" format="reference"/>
+        <attr name="alertStyle" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="Alert">
-        <attr name="alertIcon" format="reference"/>
-        <attr name="alertBackgroundColor" format="color"/>
-        <attr name="alertTitle" format="string"/>
-        <attr name="alertText" format="string"/>
+        <attr name="alertIcon" format="reference" />
+        <attr name="alertBackgroundColor" format="color" />
+        <attr name="alertTitle" format="string" />
+        <attr name="alertText" format="string" />
+    </declare-styleable>
+
+    <!--带进度的圆形进度条-->
+    <declare-styleable name="RoundProgressBar">
+        <attr name="max" format="integer" />
+        <attr name="progress" format="integer"></attr>
+        <attr name="startAngle" format="integer"></attr>
+        <attr name="ringColor" format="color" />
+        <attr name="ringProgressColor" format="color" />
+        <attr name="ringWidth" format="dimension"></attr>
+        <attr name="centreColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0" />
+            <enum name="FILL" value="1" />
+        </attr>
     </declare-styleable>
 </resources>

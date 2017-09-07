@@ -8,10 +8,11 @@ import android.view.View;
 
 import com.example.androidremark.base.BaseActivity;
 import com.example.androidremark.bean.MainMenuNameBean;
+import com.example.androidremark.network.SocketTestActivity;
 import com.example.androidremark.statusbarutil.StatusBarActivity;
 import com.example.androidremark.ui.alerter.ExampleActivity;
-import com.example.androidremark.ui.contacts.ContactsActivity;
 import com.example.androidremark.ui.chart.cake.ChartActivity;
+import com.example.androidremark.ui.contacts.ContactsActivity;
 import com.example.androidremark.ui.flow.FlowLayoutActivity;
 import com.example.androidremark.ui.imageview.ScratchActivity;
 import com.example.androidremark.ui.layout.CoordinatorLayoutActivity;
@@ -21,7 +22,7 @@ import com.example.androidremark.ui.popup.PopupTestActivity;
 import com.example.androidremark.ui.qq.QQZoneActivity;
 import com.example.androidremark.ui.qq.SwipeMenuActivity;
 import com.example.androidremark.ui.textview.StrikeTextViewActivity;
-import com.example.androidremark.widget.StrikeTextView;
+import com.example.androidremark.view.RounProgressActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,9 +62,9 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
         List<MainMenuNameBean> list = new ArrayList<>();
         String[][] array = {
                 {"自定义View", "饼形图", "支付完成", "橡皮擦", "划线textview"},
-                {"自定义ViewGroup", "手势密码", "流式布局", "", ""},
+                {"自定义", "圆进度条", "流式布局", "播放器", ""},
                 {"属性动画+Path", "PathMeasure", "Path+SVG", "ViewPropertyAnimator", ""},
-                {"贝塞尔曲线", "基本用法示例", "", "", ""},
+                {"网络", "socket", "", "", ""},
                 {"图片加载", "Volley(TODO)", "Glide(TODO)", "", "", ""},
                 {"弹窗", "PopupWindow", "alerter", "", "", ""},
                 {"状态栏", "状态栏", "CoordinatorLayout", "网易歌单详情", "", ""},
@@ -104,14 +105,15 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
             case 1:
                 switch (view.getId()) {
                     case R.id.tv_view_one:
-                        //手势密码
-
+                        //圆进度条
+                        launchActivity(RounProgressActivity.class, null);
                         break;
                     case R.id.tv_view_two:
                         //流式布局
                         launchActivity(FlowLayoutActivity.class, null);
                         break;
                     case R.id.tv_view_three:
+                        //视频播放器
                         break;
                     case R.id.tv_view_four:
                 }
@@ -119,6 +121,17 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
             case 2:
                 break;
             case 3:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //socket
+                        launchActivity(SocketTestActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                }
                 break;
             case 4:
                 break;

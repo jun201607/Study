@@ -14,11 +14,12 @@ import android.widget.TextView;
 
 import com.example.androidremark.R;
 import com.example.androidremark.base.BaseActivity;
+import com.example.androidremark.utils.StatusBarHelper;
 import com.example.androidremark.utils.StatusBarUtil;
 
 /**
  * Created by Jaeger on 16/2/14.
- *
+ * <p>
  * Email: chjie.jaeger@gmail.com
  * GitHub: https://github.com/laobie
  */
@@ -32,6 +33,8 @@ public class StatusBarActivity extends BaseActivity {
     private Button mBtnSetForImageView;
     private Button mBtnUseInFragment;
     private Button mBtnSetColorForSwipeBack;
+    private Button btn_state_bar_color;
+    private Button btn_state_bar_black;
 
     private ViewGroup contentLayout;
     private SeekBar mSbChangeAlpha;
@@ -55,6 +58,8 @@ public class StatusBarActivity extends BaseActivity {
         mBtnSetForImageView = (Button) findViewById(R.id.btn_set_for_image_view);
         mBtnUseInFragment = (Button) findViewById(R.id.btn_use_in_fragment);
         mBtnSetColorForSwipeBack = (Button) findViewById(R.id.btn_set_color_for_swipe_back);
+        btn_state_bar_color = (Button) findViewById(R.id.btn_state_bar_white);
+        btn_state_bar_black = (Button) findViewById(R.id.btn_state_bar_black);
         mSbChangeAlpha = (SeekBar) findViewById(R.id.sb_change_alpha);
         mTvStatusAlpha = (TextView) findViewById(R.id.tv_status_alpha);
         setSupportActionBar(mToolbar);
@@ -111,6 +116,20 @@ public class StatusBarActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(StatusBarActivity.this, SwipeBackActivity.class);
                 startActivity(intent);
+            }
+        });
+        //改变状态栏字体颜色-baise
+        btn_state_bar_color.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StatusBarHelper.setStatusBarDarkMode(StatusBarActivity.this);
+            }
+        });
+
+        btn_state_bar_black.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StatusBarHelper.setStatusBarLightMode(StatusBarActivity.this);
             }
         });
 

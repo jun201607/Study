@@ -3,6 +3,8 @@
     package="com.example.androidremark">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -37,7 +39,13 @@
         <activity android:name=".statusbarutil.SwipeBackActivity" />
         <activity android:name=".ui.qq.QQZoneActivity" />
         <activity android:name=".ui.alerter.ExampleActivity" />
-        <activity android:name=".ui.layout.WangYiActivity"></activity>
+        <activity android:name=".ui.layout.WangYiActivity" />
+        <activity android:name=".network.SocketTestActivity" />
+        <activity android:name=".view.RounProgressActivity" />
+        <activity
+            android:name=".video.MyVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
