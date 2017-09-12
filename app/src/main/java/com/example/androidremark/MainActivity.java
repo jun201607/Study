@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.androidremark.banner.Banner1Activity;
 import com.example.androidremark.base.BaseActivity;
 import com.example.androidremark.bean.MainMenuNameBean;
 import com.example.androidremark.network.SocketTestActivity;
@@ -21,6 +22,8 @@ import com.example.androidremark.ui.permission.PermissionActivity;
 import com.example.androidremark.ui.popup.PopupTestActivity;
 import com.example.androidremark.ui.qq.QQZoneActivity;
 import com.example.androidremark.ui.qq.SwipeMenuActivity;
+import com.example.androidremark.ui.recycler.RecyclerViewActivity;
+import com.example.androidremark.ui.recycler.sticky.StickyRecyclerActivity;
 import com.example.androidremark.ui.textview.StrikeTextViewActivity;
 import com.example.androidremark.view.RounProgressActivity;
 
@@ -62,8 +65,8 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
         List<MainMenuNameBean> list = new ArrayList<>();
         String[][] array = {
                 {"自定义View", "饼形图", "支付完成", "橡皮擦", "划线textview"},
-                {"自定义", "圆进度条", "流式布局", "播放器", ""},
-                {"属性动画+Path", "PathMeasure", "Path+SVG", "ViewPropertyAnimator", ""},
+                {"自定义", "圆进度条", "流式布局", "播放器", "时光轴recycler"},
+                {"轮播", "Banner", "粘性reclcler", "", ""},
                 {"网络", "socket", "", "", ""},
                 {"图片加载", "Volley(TODO)", "Glide(TODO)", "", "", ""},
                 {"弹窗", "PopupWindow", "alerter", "", "", ""},
@@ -116,9 +119,26 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         //视频播放器
                         break;
                     case R.id.tv_view_four:
+                        //Recyclerview
+                        launchActivity(RecyclerViewActivity.class, null);
+                        break;
                 }
                 break;
             case 2:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //banner
+                        launchActivity(Banner1Activity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        //粘性recycler
+                        launchActivity(StickyRecyclerActivity.class, null);
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                        break;
+                }
                 break;
             case 3:
                 switch (view.getId()) {

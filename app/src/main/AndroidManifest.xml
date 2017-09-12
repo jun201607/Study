@@ -42,10 +42,9 @@
         <activity android:name=".ui.layout.WangYiActivity" />
         <activity android:name=".network.SocketTestActivity" />
         <activity android:name=".view.RounProgressActivity" />
-        <activity
-            android:name=".video.MyVideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait" />
+        <activity android:name=".banner.Banner1Activity" />
+        <activity android:name=".ui.recycler.RecyclerViewActivity" />
+        <activity android:name=".ui.recycler.sticky.StickyRecyclerActivity"></activity>
     </application>
 
 </manifest>

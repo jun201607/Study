@@ -118,14 +118,14 @@ public class StatusBarActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-        //改变状态栏字体颜色-baise
+        //改变状态栏字体颜色-白色
         btn_state_bar_color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StatusBarHelper.setStatusBarDarkMode(StatusBarActivity.this);
             }
         });
-
+        //改变状态栏字体颜色-黑色
         btn_state_bar_black.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
