@@ -3,6 +3,7 @@
     package="com.example.androidremark">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -26,7 +27,6 @@
         <activity android:name=".ui.contacts.ContactsActivity" />
         <activity android:name=".ui.popup.PopupTestActivity" />
         <activity android:name=".ui.qq.SwipeMenuActivity" />
-        <activity android:name=".ui.permission.PermissionActivity" />
         <activity android:name=".ui.camera.CameraActivity" />
         <activity android:name=".ui.imageview.ScratchActivity" />
         <activity android:name=".ui.textview.StrikeTextViewActivity" />
@@ -37,14 +37,21 @@
         <activity android:name=".statusbarutil.ImageStatusBarActivity" />
         <activity android:name=".statusbarutil.ImageViewActivity" />
         <activity android:name=".statusbarutil.SwipeBackActivity" />
-        <activity android:name=".ui.qq.QQZoneActivity" />
         <activity android:name=".ui.alerter.ExampleActivity" />
         <activity android:name=".ui.layout.WangYiActivity" />
         <activity android:name=".network.SocketTestActivity" />
         <activity android:name=".view.RounProgressActivity" />
         <activity android:name=".banner.Banner1Activity" />
         <activity android:name=".ui.recycler.RecyclerViewActivity" />
-        <activity android:name=".ui.recycler.sticky.StickyRecyclerActivity"></activity>
+        <activity android:name=".ui.recycler.sticky.StickyRecyclerActivity" />
+        <activity android:name=".permission.PermissionActivity" />
+        <activity android:name=".ui.interfaceloading.TipActivity" />
+        <activity android:name=".ui2.xloadingdialog.XLoadingDialogActivity" />
+        <activity android:name=".ui2.baserecycler.BaseRecyclerActivity" />
+        <activity android:name=".ui2.grouprecycler.GroupRecyclerActivity" />
+        <activity android:name=".ui2.button.SwitchButtonActivity" />
+        <activity android:name=".ui.textview.span.SpanActivity" />
+        <activity android:name=".ui2.calendar.CalendarActivity"></activity>
     </application>
 
 </manifest>

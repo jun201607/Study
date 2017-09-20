@@ -10,21 +10,27 @@ import com.example.androidremark.banner.Banner1Activity;
 import com.example.androidremark.base.BaseActivity;
 import com.example.androidremark.bean.MainMenuNameBean;
 import com.example.androidremark.network.SocketTestActivity;
+import com.example.androidremark.permission.PermissionActivity;
 import com.example.androidremark.statusbarutil.StatusBarActivity;
 import com.example.androidremark.ui.alerter.ExampleActivity;
 import com.example.androidremark.ui.chart.cake.ChartActivity;
 import com.example.androidremark.ui.contacts.ContactsActivity;
+import com.example.androidremark.ui.interfaceloading.TipActivity;
 import com.example.androidremark.ui.flow.FlowLayoutActivity;
 import com.example.androidremark.ui.imageview.ScratchActivity;
 import com.example.androidremark.ui.layout.CoordinatorLayoutActivity;
 import com.example.androidremark.ui.payment.ALiPayActivity;
-import com.example.androidremark.ui.permission.PermissionActivity;
 import com.example.androidremark.ui.popup.PopupTestActivity;
-import com.example.androidremark.ui.qq.QQZoneActivity;
 import com.example.androidremark.ui.qq.SwipeMenuActivity;
 import com.example.androidremark.ui.recycler.RecyclerViewActivity;
 import com.example.androidremark.ui.recycler.sticky.StickyRecyclerActivity;
+import com.example.androidremark.ui.textview.span.SpanActivity;
 import com.example.androidremark.ui.textview.StrikeTextViewActivity;
+import com.example.androidremark.ui2.baserecycler.BaseRecyclerActivity;
+import com.example.androidremark.ui2.button.SwitchButtonActivity;
+import com.example.androidremark.ui2.calendar.CalendarActivity;
+import com.example.androidremark.ui2.grouprecycler.GroupRecyclerActivity;
+import com.example.androidremark.ui2.xloadingdialog.XLoadingDialogActivity;
 import com.example.androidremark.view.RounProgressActivity;
 
 import java.util.ArrayList;
@@ -64,14 +70,16 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
     private void initData() {
         List<MainMenuNameBean> list = new ArrayList<>();
         String[][] array = {
-                {"自定义View", "饼形图", "支付完成", "橡皮擦", "划线textview"},
+                {"自定义View", "饼形图", "支付完成", "橡皮擦", "日历"},
                 {"自定义", "圆进度条", "流式布局", "播放器", "时光轴recycler"},
-                {"轮播", "Banner", "粘性reclcler", "", ""},
-                {"网络", "socket", "", "", ""},
-                {"图片加载", "Volley(TODO)", "Glide(TODO)", "", "", ""},
-                {"弹窗", "PopupWindow", "alerter", "", "", ""},
-                {"状态栏", "状态栏", "CoordinatorLayout", "网易歌单详情", "", ""},
-                {"其他", "魅族通讯录", "QQ侧滑删除", "权限管理", "QQ空间", ""},
+                {"轮播", "Banner", "粘性reclcler", "XLoadingDialog", "BaseRecycler1"},
+                {"网络", "socket", "分组recycler", "", ""},
+                {"按钮", "switch", "", "", ""},
+                {"弹窗", "PopupWindow", "alerter", "", ""},
+                {"状态栏", "状态栏", "CoordinatorLayout", "网易歌单详情", ""},
+                {"其他", "魅族通讯录", "QQ侧滑删除", "权限管理", "界面提示"},
+                {"textview", "span", "划线textview", "", ""},
+                {"动画", "基本动画", "", "", ""},
         };
         for (String[] anArray : array) {
             list.add(new MainMenuNameBean(anArray[0], anArray[1], anArray[2], anArray[3], anArray[4]));
@@ -101,7 +109,8 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(ScratchActivity.class, null);
                         break;
                     case R.id.tv_view_four:
-                        launchActivity(StrikeTextViewActivity.class, null);
+                        //日历
+                        launchActivity(CalendarActivity.class, null);
                         break;
                 }
                 break;
@@ -135,8 +144,12 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(StickyRecyclerActivity.class, null);
                         break;
                     case R.id.tv_view_three:
+                        //XLoadingDialog
+                        launchActivity(XLoadingDialogActivity.class, null);
                         break;
                     case R.id.tv_view_four:
+                        //BaseRecyclerActivity
+                        launchActivity(BaseRecyclerActivity.class, null);
                         break;
                 }
                 break;
@@ -147,6 +160,8 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(SocketTestActivity.class, null);
                         break;
                     case R.id.tv_view_two:
+                        //分组recycler
+                        launchActivity(GroupRecyclerActivity.class, null);
                         break;
                     case R.id.tv_view_three:
                         break;
@@ -154,6 +169,17 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                 }
                 break;
             case 4:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //switch
+                        launchActivity(SwitchButtonActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                }
                 break;
             case 5:
                 switch (view.getId()) {
@@ -200,8 +226,38 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(PermissionActivity.class, null);
                         break;
                     case R.id.tv_view_four:
-                        //QQ空间
-                        launchActivity(QQZoneActivity.class, null);
+                        //界面提示
+                        launchActivity(TipActivity.class, null);
+                        break;
+                }
+                break;
+            case 8:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //span
+                        launchActivity(SpanActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        //
+                        launchActivity(StrikeTextViewActivity.class, null);
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                        break;
+                }
+                break;
+            case 9:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //基本动画
+                       // launchActivity(SpanActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
                         break;
                 }
                 break;

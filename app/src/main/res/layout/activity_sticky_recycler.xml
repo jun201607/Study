@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/red_f"
     tools:context="com.example.androidremark.ui.recycler.sticky.StickyRecyclerActivity">
 
     <include

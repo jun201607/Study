@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.androidremark.R;
 import com.example.androidremark.base.BaseActivity;
+import com.example.androidremark.bean.GroupChildBean;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,5 +62,22 @@ public class StickyRecyclerActivity extends BaseActivity {
                 mDatas.add(bean);
             }
         }
+
+//
+//        String data = "{\"resultMsg\":{\"groupList\":[{\"childList\":[{\"childName\":\"组员1\",\"openTime\":\"2017-04-20 11:40:18\"}," +
+//                "{\"childName\":\"组员2\",\"openTime\":\"2017-04-20 11:40:18\"},{\"childName\":\"组员3\",\"openTime\":\"2017-04-20 11:40:18\"}],\"groupName\":\"分组1\"}," +
+//                "{\"childList\":[{\"childName\":\"组员1\",\"openTime\":\"2017-07-06 10:05:16\"}," +
+//                "{\"childName\":\"组员2\",\"openTime\":\"2017-07-06 10:05:16\"}],\"groupName\":\"分组2\"}]}}";
+//
+//        GroupChildBean bean = new Gson().fromJson(data, GroupChildBean.class);
+//
+//        for (GroupChildBean.ResultMsgBean.GroupListBean group : bean.getResultMsg().getGroupList()) {
+//            for (GroupChildBean.ResultMsgBean.GroupListBean.ChildListBean child : group.getChildList()) {
+//                String tag = group.getGroupName();
+//                ItemInfoBean bean2 = new ItemInfoBean(child.getChildName(), "其他信息");
+//                bean2.tag = tag;
+//                mDatas.add(bean2);
+//            }
+//        }
     }
 }

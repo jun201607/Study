@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00A8E1</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!--<color name="colorPrimary">#00A8E1</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+    <color name="colorPrimary">@color/main_color</color>
+    <color name="colorPrimaryDark">@color/main_color</color>
+    <color name="colorAccent">@color/main_color</color>
 
     <!--888888888888888888888888888888888888888888888888-->
+    <color name="main_color">#3CB264</color>
     <color name="green_f">#ff66ccff</color>
     <color name="gray_pure">#eeeeee</color>
     <color name="orange_salmon">#EC5745</color>
@@ -95,4 +100,21 @@
     <color name="alert_default_error_background">#F44336</color>
     <color name="alert_default_text_color">@android:color/white</color>
     <color name="alert_default_icon_color">@android:color/white</color>
+    <color name="X_text_gray">#8a8a8a</color>
+    <color name="XFrame_loading_dialog_message">#595959</color>
+    <color name="XFrame_darker_gray">#aaaaaa</color>
+
+    <color name="rainbow_red">#bf0c43</color>
+    <color name="rainbow_yellow">#f9ba15</color>
+    <color name="rainbow_green">#8eac00</color>
+    <color name="rainbow_blue">#127a97</color>
+    <color name="rainbow_purple">#452b72</color>
+
+    <integer-array name="rainbow">
+        <item>@color/rainbow_red</item>
+        <item>@color/rainbow_yellow</item>
+        <item>@color/rainbow_green</item>
+        <item>@color/rainbow_blue</item>
+        <item>@color/rainbow_purple</item>
+    </integer-array>
 </resources>

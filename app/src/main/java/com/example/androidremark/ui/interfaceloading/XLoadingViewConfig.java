@@ -1,11 +1,13 @@
-package com.example.androidremark.ui.interfaceloadding;
+package com.example.androidremark.ui.interfaceloading;
 
 
 import android.support.annotation.LayoutRes;
 
-import com.youth.xframe.R;
+import com.example.androidremark.R;
+
 
 public class XLoadingViewConfig {
+
 
     private int emptyViewResId = R.layout.xloading_empty_view;
     private int errorViewResId = R.layout.xloading_error_view;

@@ -1,24 +1,18 @@
-package com.youth.xframe.widget;
+package com.example.androidremark.ui2.xloadingdialog;
 
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.annotation.ColorInt;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.youth.xframe.R;
-import com.youth.xframe.XFrame;
-import com.youth.xframe.utils.XEmptyUtils;
-import com.youth.xframe.utils.XOutdatedUtils;
+import com.example.androidremark.R;
+import com.example.androidremark.utils.XOutdatedUtils;
+
+//import android.widget.ProgressBar;
 
 /**
  * 加载等待提示框
@@ -29,7 +23,7 @@ public class XLoadingDialog extends Dialog {
     private static XLoadingDialog dialog;
     private Context context;
     private TextView loadingMessage;
-    private ProgressBar progressBar;
+    //    private ProgressBar progressBar;
     private LinearLayout loadingView;
     private XColorDrawable drawable;
 
@@ -39,7 +33,7 @@ public class XLoadingDialog extends Dialog {
         drawable = new XColorDrawable();
         setContentView(R.layout.xloading_dialog);
         loadingMessage = (TextView) findViewById(R.id.xframe_loading_message);
-        progressBar = (ProgressBar) findViewById(R.id.xframe_loading_progressbar);
+//        progressBar = (ProgressBar) findViewById(R.id.xframe_loading_progressbar);
         loadingView = (LinearLayout) findViewById(R.id.xframe_loading_view);
         loadingMessage.setPadding(15, 0, 0, 0);
         drawable.setColor(Color.WHITE);
@@ -83,7 +77,7 @@ public class XLoadingDialog extends Dialog {
     }
 
     public XLoadingDialog setMessage(String message) {
-        if (!XEmptyUtils.isSpace(message)) {
+        if (!TextUtils.isEmpty(message)) {
             loadingMessage.setText(message);
         }
         return this;

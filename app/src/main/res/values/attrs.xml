@@ -52,4 +52,23 @@
             <enum name="FILL" value="1" />
         </attr>
     </declare-styleable>
+    <!--界面lodding-->
+    <declare-styleable name="XLoadingView">
+        <attr name="loadingView" format="reference" />
+        <attr name="errorView" format="reference" />
+        <attr name="emptyView" format="reference" />
+        <attr name="noNetworkView" format="reference" />
+    </declare-styleable>
+    <!--垂直轮播文字-->
+    <declare-styleable name="AdverItemView">
+        <attr name="gap" format="integer" />
+        <attr name="animDuration" format="integer" />\
+        <attr name="adtextSize" format="dimension|reference" />
+        <attr name="adtextColor" format="color" />
+        <attr name="adverHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="XCalendarView">
+        <attr name="curMonth" format="string" />
+    </declare-styleable>
 </resources>

@@ -3,6 +3,7 @@ package com.example.androidremark.base;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +13,9 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.example.androidremark.R;
+import com.example.androidremark.permission.XPermission;
 import com.example.androidremark.utils.StatusBarUtil;
+import com.example.androidremark.utils.XOutdatedUtils;
 
 /**
  * Created by caobin on 2017/1/4.
@@ -33,7 +36,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void setStatusBar() {
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
     }
 
     /**
@@ -67,6 +70,7 @@ public class BaseActivity extends AppCompatActivity {
     public void initToolBar(Toolbar toolbar, String name, boolean showHomeAsUp, boolean isShowRight) {
         this.isShowRight = isShowRight;
         toolbar.setTitle(name);
+        toolbar.setTitleTextColor(XOutdatedUtils.getColor(this, R.color.white));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(showHomeAsUp);
     }
@@ -103,5 +107,19 @@ public class BaseActivity extends AppCompatActivity {
     protected void showAlert(String msg) {
         new AlertDialog.Builder(this).setIcon(R.drawable.app_logo).setTitle("温馨提示").setMessage(msg)
                 .setPositiveButton("确定", null).create().show();
+    }
+
+    /**
+     * Android M 全局权限申请回调
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[]
+            grantResults) {
+        XPermission.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

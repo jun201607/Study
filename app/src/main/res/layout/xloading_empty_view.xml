@@ -7,12 +7,12 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xloading_empty"/>
+        android:src="@drawable/x_loading_empty"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/xloading_empty_text"
-        android:layout_marginTop="@dimen/XFrame_spacing"
-        android:textColor="@color/XFrame_text_gray"
-        android:textSize="@dimen/XFrame_text_size" />
+        android:layout_marginTop="10dp"
+        android:textColor="@color/X_text_gray"
+        android:textSize="15sp" />
 </LinearLayout>

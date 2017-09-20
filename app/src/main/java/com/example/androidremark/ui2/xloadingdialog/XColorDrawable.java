@@ -1,4 +1,4 @@
-package com.youth.xframe.widget;
+package com.example.androidremark.ui2.xloadingdialog;
 
 
 import android.graphics.Canvas;

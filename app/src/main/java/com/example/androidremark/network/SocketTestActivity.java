@@ -130,7 +130,9 @@ public class SocketTestActivity extends BaseActivity {
                     System.err.println("io exception: " + e.toString());
                 } finally {
                     try {
-                        reader.close();
+                        if (reader != null) {
+                            reader.close();
+                        }
                         if (printWriter != null) {
                             printWriter.close();
                         }

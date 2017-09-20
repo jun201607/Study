@@ -24,6 +24,9 @@ import android.widget.EditText;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Map;
 
 /**
@@ -543,5 +546,19 @@ public class MyUtils {
     public static boolean isHavePermission(Context context, String permission) {
         return ContextCompat.checkSelfPermission(context, permission) !=
                 PackageManager.PERMISSION_GRANTED;
+    }
+
+    /**
+     * 毫秒转日期
+     *
+     * @param dateTime
+     * @param type 转换类型例如-yyyy-MM-dd HH:mm:ss
+     * @return
+     */
+    public static String getFormatDateTime(long dateTime,String type) {
+        DateFormat formatter = new SimpleDateFormat(type);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(dateTime);
+        return formatter.format(calendar.getTime());
     }
 }

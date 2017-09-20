@@ -24,7 +24,7 @@
             android:layout_marginLeft="@dimen/XFrame_spacing"
             android:text="没有数据了"
             android:textColor="@color/XFrame_darker_gray"
-            android:textSize="@dimen/XFrame_text_size" />
+            android:textSize="15sp" />
     </LinearLayout>
 
 

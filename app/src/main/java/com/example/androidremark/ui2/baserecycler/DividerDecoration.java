@@ -1,4 +1,4 @@
-package com.youth.xframe.adapter.decoration;
+package com.example.androidremark.ui2.baserecycler;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -9,8 +9,6 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-
-import com.youth.xframe.adapter.XRecyclerViewAdapter;
 
 public class DividerDecoration extends RecyclerView.ItemDecoration{
     private ColorDrawable mColorDrawable;

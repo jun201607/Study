@@ -34,7 +34,7 @@ import java.util.Map;
 /**
  * 界面loading
  */
-public class LoadingLayout extends FrameLayout {
+public class XLoadingLayout extends FrameLayout {
 
 
     OnClickListener mRetryListener;
@@ -47,15 +47,15 @@ public class LoadingLayout extends FrameLayout {
     LayoutInflater mInflater;
     Map<Integer, View> mLayouts = new HashMap<>();
 
-    public static LoadingLayout wrap(Activity activity) {
+    public static XLoadingLayout wrap(Activity activity) {
         return wrap(((ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0));
     }
 
-    public static LoadingLayout wrap(Fragment fragment) {
+    public static XLoadingLayout wrap(Fragment fragment) {
         return wrap(fragment.getView());
     }
 
-    public static LoadingLayout wrap(View view) {
+    public static XLoadingLayout wrap(View view) {
         if (view == null) {
             throw new RuntimeException("content view can not be null");
         }
@@ -67,22 +67,22 @@ public class LoadingLayout extends FrameLayout {
         int index = parent.indexOfChild(view);
         parent.removeView(view);
 
-        LoadingLayout layout = new LoadingLayout(view.getContext());
+        XLoadingLayout layout = new XLoadingLayout(view.getContext());
         parent.addView(layout, index, lp);
         layout.addView(view);
         layout.setContentView(view);
         return layout;
     }
 
-    public LoadingLayout(Context context) {
-        this(context, null, R.attr.styleLoadingLayout);
+    public XLoadingLayout(Context context) {
+        this(context, null, 0);
     }
 
-    public LoadingLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.styleLoadingLayout);
+    public XLoadingLayout(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
     }
 
-    public LoadingLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public XLoadingLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mInflater = LayoutInflater.from(context);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.XLoadingView, defStyleAttr, 0);
