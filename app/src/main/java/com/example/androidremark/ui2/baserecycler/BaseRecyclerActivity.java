@@ -8,12 +8,19 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidremark.R;
+import com.example.androidremark.banner.GlideImageLoader;
 import com.example.androidremark.base.BaseActivity;
+import com.example.androidremark.utils.MyUtils;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +33,9 @@ public class BaseRecyclerActivity extends BaseActivity implements SwipeRefreshLa
     private List<String> datas;
     private Handler mHandler = new Handler();
     private SwipeRefreshLayout mSwipeLayout;
+    private List<String> mList;
+    private List<String> mList2;
+    Banner banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +57,40 @@ public class BaseRecyclerActivity extends BaseActivity implements SwipeRefreshLa
         mSwipeLayout.setColorSchemeResources(R.color.main_color);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
         mRecyclerView.addItemDecoration(new DividerDecoration(Color.parseColor("#C4C4C4"), 2));
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
 
         mAdapter = new TestmAdapter(mRecyclerView, datas);
+        View headView = LayoutInflater.from(this).inflate(R.layout.layout_banner, null);
+        banner = (Banner) headView.findViewById(R.id.banner1);
+        mList = new ArrayList<>();
+        mList.add("http://img.zcool.cn/community/01b72057a7e0790000018c1bf4fce0.png");
+        mList.add("http://img.zcool.cn/community/01fca557a7f5f90000012e7e9feea8.jpg");
+        mList.add("http://img.zcool.cn/community/01996b57a7f6020000018c1bedef97.jpg");
+        mList.add("http://img.zcool.cn/community/01700557a7f42f0000018c1bd6eb23.jpg");
+
+        mList2 = new ArrayList<>();
+        mList2.add("1");
+        mList2.add("2");
+        mList2.add("3");
+        mList2.add("4");
+
+        //设置图片加载器
+        banner.setImageLoader(new GlideImageLoader());
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        banner.setIndicatorGravity(BannerConfig.RIGHT);
+        banner.update(mList, mList2);
+        banner.start();
+
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                toast("我是第" + (position + 1) + "个");
+            }
+        });
+        mAdapter.addHeaderView(headView);
+
         //点击事件
         mAdapter.setOnItemClickListener(new XRecyclerViewAdapter.OnItemClickListener() {
             @Override
@@ -101,6 +141,20 @@ public class BaseRecyclerActivity extends BaseActivity implements SwipeRefreshLa
 //        Log.e("--", str + "  " + datas.size());
         datas.add(str);
         return datas;
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        banner.startAutoPlay();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //结束轮播
+        banner.stopAutoPlay();
     }
 
     @Override

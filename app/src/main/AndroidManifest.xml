@@ -51,7 +51,11 @@
         <activity android:name=".ui2.grouprecycler.GroupRecyclerActivity" />
         <activity android:name=".ui2.button.SwitchButtonActivity" />
         <activity android:name=".ui.textview.span.SpanActivity" />
-        <activity android:name=".ui2.calendar.CalendarActivity"></activity>
+        <activity android:name=".ui2.calendar.CalendarActivity" />
+        <activity android:name=".animation.ObjectAnimActivity" />
+        <activity android:name=".ui.flow.myflow.MyFlowActivity" />
+        <activity android:name=".ui2.meituan.MTOutFoodActivity"/>
+        <activity android:name=".ui2.tree_recycler.TreeRecyviewActivity"/>
     </application>
 
 </manifest>

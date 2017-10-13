@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
@@ -95,6 +96,19 @@ public class BaseActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    /**
+     * 简化findviewbyid
+     * 此处用不到，此基类已使用ButterKnife注解
+     * 在不使用注解的时候可以使用
+     *
+     * @param resId
+     * @param <T>
+     * @return
+     */
+    public <T extends View> T mFindViewById(int resId) {
+        return (T) findViewById(resId);
     }
 
 

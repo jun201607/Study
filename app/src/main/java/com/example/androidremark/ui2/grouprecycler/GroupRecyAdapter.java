@@ -52,17 +52,22 @@ public class GroupRecyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = null;
+        RecyclerView.ViewHolder holder = null;
         if (viewType == GROUP_ITEM_TYPE) {
-            View groupView = inflater.inflate(R.layout.item_list_group, parent, false);
-            return new GroupViewHolder(groupView);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_group, parent, false);
+            System.err.println("onCreateViewHolder");
+            holder = new GroupViewHolder(view);
         } else {
-            View childView = inflater.inflate(R.layout.item_list_child, parent, false);
-            return new ChildViewHolder(childView);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_child, parent, false);
+            holder = new ChildViewHolder(view);
         }
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        System.err.println("onBindViewHolder");
         final ChildListBean bean = mList.get(position);
         int type = holder.getItemViewType();
         if (type == GROUP_ITEM_TYPE) {
@@ -93,6 +98,7 @@ public class GroupRecyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemViewType(int position) {
+        System.err.println("getItemViewType");
         if (mList.get(position).isGroup()) {
             return GROUP_ITEM_TYPE;
         } else {
@@ -110,6 +116,7 @@ public class GroupRecyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public GroupViewHolder(View itemView) {
             super(itemView);
+            System.err.println("GroupViewHolder");
             textView = (TextView) itemView.findViewById(R.id.header);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
         }

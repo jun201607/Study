@@ -1,14 +1,16 @@
 package com.example.androidremark.banner;
 
 import android.os.Bundle;
-
+import android.util.AttributeSet;
+import android.view.View;
 
 import com.example.androidremark.R;
 import com.example.androidremark.base.BaseActivity;
 import com.example.androidremark.utils.StatusBarUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
-import com.youth.banner.listener.OnBannerClickListener;
+import com.youth.banner.listener.OnBannerListener;
+import com.youth.banner.transformer.ScaleInOutTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,19 +26,25 @@ public class Banner1Activity extends BaseActivity {
 
     @Override
     protected void setStatusBar() {
-        StatusBarUtil.setTranslucentForImageView(this, 0,banner);
+        StatusBarUtil.setTranslucentForImageView(this, 0, banner);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banner1);
+
+//        banner = new Banner(this);
+//        ViewGroup.LayoutParams linearParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, MyUtils.getScreenHeight(this) / 3);
+//        addContentView(banner, linearParams);
         banner = (Banner) findViewById(R.id.banner1);
+
+
         mList = new ArrayList<>();
-        mList.add("https://image.baidu.com/search/down?tn=download&ipn=dwnl&word=download&ie=utf8&fr=result&url=http%3A%2F%2Fimg1.2345.com%2Fduoteimg%2FqqTxImg%2F11%2F2012091910313510745.jpg&thumburl=https%3A%2F%2Fss0.bdstatic.com%2F70cFvHSh_Q1YnxGkpoWK1HF6hhy%2Fit%2Fu%3D602288768%2C1056696022%26fm%3D27%26gp%3D0.jpg");
-        mList.add("https://image.baidu.com/search/down?tn=download&ipn=dwnl&word=download&ie=utf8&fr=result&url=http%3A%2F%2Fimg1.2345.com%2Fduoteimg%2FqqTxImg%2F11%2F2012091910313510745.jpg&thumburl=https%3A%2F%2Fss0.bdstatic.com%2F70cFvHSh_Q1YnxGkpoWK1HF6hhy%2Fit%2Fu%3D602288768%2C1056696022%26fm%3D27%26gp%3D0.jpg");
-        mList.add("https://image.baidu.com/search/down?tn=download&ipn=dwnl&word=download&ie=utf8&fr=result&url=http%3A%2F%2Fimg1.2345.com%2Fduoteimg%2FqqTxImg%2F11%2F2012091910313510745.jpg&thumburl=https%3A%2F%2Fss0.bdstatic.com%2F70cFvHSh_Q1YnxGkpoWK1HF6hhy%2Fit%2Fu%3D602288768%2C1056696022%26fm%3D27%26gp%3D0.jpg");
-        mList.add("https://image.baidu.com/search/down?tn=download&ipn=dwnl&word=download&ie=utf8&fr=result&url=http%3A%2F%2Fimg1.2345.com%2Fduoteimg%2FqqTxImg%2F11%2F2012091910313510745.jpg&thumburl=https%3A%2F%2Fss0.bdstatic.com%2F70cFvHSh_Q1YnxGkpoWK1HF6hhy%2Fit%2Fu%3D602288768%2C1056696022%26fm%3D27%26gp%3D0.jpg");
+        mList.add("http://img.zcool.cn/community/01b72057a7e0790000018c1bf4fce0.png");
+        mList.add("http://img.zcool.cn/community/01fca557a7f5f90000012e7e9feea8.jpg");
+        mList.add("http://img.zcool.cn/community/01996b57a7f6020000018c1bedef97.jpg");
+        mList.add("http://img.zcool.cn/community/01700557a7f42f0000018c1bd6eb23.jpg");
 
         mList2 = new ArrayList<>();
         mList2.add("1");
@@ -47,35 +55,30 @@ public class Banner1Activity extends BaseActivity {
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
-        banner.setImages(mList);
-        banner.setBannerTitles(mList2);
-        banner.setOnBannerClickListener(new OnBannerClickListener() {
+        banner.update(mList, mList2);
+        banner.start();
+
+        banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                toast("我是第" + position + "个");
+                toast("我是第" + (position + 1) + "个");
             }
         });
 
-        //开始轮播
-        banner.start();
-/*//设置banner样式
-    banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
-    //设置图片加载器
-    banner.setImageLoader(new GlideImageLoader());
-    //设置图片集合
-    banner.setImages(images);
-    //设置banner动画效果
-    banner.setBannerAnimation(Transformer.DepthPage);
-    //设置标题集合（当banner样式有显示title时）
-    banner.setBannerTitles(titles);
-    //设置自动轮播，默认为true
-    banner.isAutoPlay(true);
-    //设置轮播时间
-    banner.setDelayTime(1500);
-    //设置指示器位置（当banner模式中有指示器时）
-    banner.setIndicatorGravity(BannerConfig.CENTER);
-    //banner设置方法全部调用完毕时最后调用
-    banner.start();*/
+//        findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mList.clear();
+//                mList2.clear();
+//                mList.add("http://img.zcool.cn/community/01700557a7f42f0000018c1bd6eb23.jpg");
+//                mList.add("http://img.zcool.cn/community/01700557a7f42f0000018c1bd6eb23.jpg");
+//                mList.add("http://img.zcool.cn/community/01700557a7f42f0000018c1bd6eb23.jpg");
+//                mList2.add("测试");
+//                mList2.add("测试");
+//                mList2.add("测试");
+//                banner.update(mList, mList2);
+//            }
+//        });
     }
 
     @Override

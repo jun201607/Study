@@ -21,8 +21,8 @@ public class GlideImageLoader extends ImageLoader {
     public void displayImage(Context context, Object path, ImageView imageView) {
 
         //Glide 加载图片简单用法
-        Glide.with(context).load(path)
-                //.error(R.drawable.img_two_bi_one)
+        Glide.with(context.getApplicationContext()).load(path)
+                //.error(R.drawable.avatar1)
                 .placeholder(R.drawable.avatar1)
                 .dontAnimate()
                 .crossFade(1000)

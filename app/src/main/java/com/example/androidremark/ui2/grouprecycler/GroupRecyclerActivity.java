@@ -59,6 +59,7 @@ public class GroupRecyclerActivity extends BaseActivity {
                 "{\"childList\":[{\"childName\":\"组员1\",\"openTime\":\"2017-07-06 10:05:16\"}," +
                 "{\"childName\":\"组员2\",\"openTime\":\"2017-07-06 10:05:16\"}],\"groupName\":\"分组2\"}]}}";
 
+
         GroupChildBean bean = new Gson().fromJson(data, GroupChildBean.class);
 
         for (GroupChildBean.ResultMsgBean.GroupListBean group : bean.getResultMsg().getGroupList()) {
@@ -69,10 +70,16 @@ public class GroupRecyclerActivity extends BaseActivity {
             }
             groupMap.put(group.getGroupName(), childList);
         }
-//
-//        for (int i = 0; i < 3; i++) {
+
+//        private ArrayList<GroupChildBean.ResultMsgBean.GroupListBean> childList;
+//        for (GroupChildBean.ResultMsgBean.GroupListBean group : bean.getResultMsg().getGroupList()) {
 //            childList = new ArrayList<>();
-//            for (int j = 0; j < 4; j++) {
+//            childList.add(group);
+//        }
+//
+//        for (int i = 0; i < 1; i++) {
+//            childList = new ArrayList<>();
+//            for (int j = 0; j < 1; j++) {
 //                ChildListBean childBean = new ChildListBean("组员" + (j + 1));
 //                childList.add(childBean);
 //            }

@@ -22,7 +22,7 @@ public class RecyclerViewActivity extends BaseActivity {
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        initToolBar(toolbar, "学习笔记", true);
+        initToolBar(toolbar, "时光轴", true);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
@@ -32,5 +32,12 @@ public class RecyclerViewActivity extends BaseActivity {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.addItemDecoration(new TimeLineDecoration(this));
         mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+                toast(position + "");
+            }
+        });
     }
 }

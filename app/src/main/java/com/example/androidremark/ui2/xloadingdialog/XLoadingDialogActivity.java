@@ -10,17 +10,29 @@ import android.view.View;
 import com.example.androidremark.R;
 import com.example.androidremark.base.BaseActivity;
 
+import java.lang.ref.WeakReference;
+
 /**
  * 加载dialog
  */
 public class XLoadingDialogActivity extends BaseActivity {
-    private Handler handler = new Handler() {
+    private MyHandler myHandler;
+
+    static class MyHandler extends Handler {
+
+        WeakReference<XLoadingDialogActivity> mActivity;
+
+        public MyHandler(XLoadingDialogActivity activity) {
+            mActivity = new WeakReference<XLoadingDialogActivity>(activity);
+        }
+
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            XLoadingDialog.with(getApplicationContext()).dismiss();
+            XLoadingDialogActivity activity = mActivity.get();
+            XLoadingDialog.with(activity).dismiss();
         }
-    };
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +40,7 @@ public class XLoadingDialogActivity extends BaseActivity {
         setContentView(R.layout.activity_xloading_dialog);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         initToolBar(toolbar, "XLoadingDialog", true);
+        myHandler = new MyHandler(this);
     }
 
     public void show(View view) {
@@ -41,7 +54,7 @@ public class XLoadingDialogActivity extends BaseActivity {
                         .setMessageColor(Color.WHITE)
                         .setCanceled(false)
                         .show();
-                handler.sendEmptyMessageDelayed(1, 3000);
+                myHandler.sendEmptyMessageDelayed(1, 3000);
                 break;
             case R.id.loading3:
                 XLoadingDialog.with(this)
@@ -57,8 +70,15 @@ public class XLoadingDialogActivity extends BaseActivity {
                         .setMessageColor(Color.WHITE)
                         .setMessage("加载中...")
                         .show();
-                handler.sendEmptyMessageDelayed(1, 3000);
+                myHandler.sendEmptyMessageDelayed(1, 3000);
                 break;
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        myHandler.removeCallbacksAndMessages(null);
+        super.onDestroy();
+    }
 }
+

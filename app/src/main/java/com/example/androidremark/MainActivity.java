@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
+import com.example.androidremark.animation.ObjectAnimActivity;
 import com.example.androidremark.banner.Banner1Activity;
 import com.example.androidremark.base.BaseActivity;
 import com.example.androidremark.bean.MainMenuNameBean;
@@ -15,6 +17,7 @@ import com.example.androidremark.statusbarutil.StatusBarActivity;
 import com.example.androidremark.ui.alerter.ExampleActivity;
 import com.example.androidremark.ui.chart.cake.ChartActivity;
 import com.example.androidremark.ui.contacts.ContactsActivity;
+import com.example.androidremark.ui.flow.myflow.MyFlowActivity;
 import com.example.androidremark.ui.interfaceloading.TipActivity;
 import com.example.androidremark.ui.flow.FlowLayoutActivity;
 import com.example.androidremark.ui.imageview.ScratchActivity;
@@ -30,6 +33,8 @@ import com.example.androidremark.ui2.baserecycler.BaseRecyclerActivity;
 import com.example.androidremark.ui2.button.SwitchButtonActivity;
 import com.example.androidremark.ui2.calendar.CalendarActivity;
 import com.example.androidremark.ui2.grouprecycler.GroupRecyclerActivity;
+import com.example.androidremark.ui2.meituan.MTOutFoodActivity;
+import com.example.androidremark.ui2.tree_recycler.TreeRecyviewActivity;
 import com.example.androidremark.ui2.xloadingdialog.XLoadingDialogActivity;
 import com.example.androidremark.view.RounProgressActivity;
 
@@ -46,6 +51,9 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        Log.d("TAG", "ddd");
+        Log.e("TAG", "ddd");
+        System.err.println("哈哈 ");
     }
 
     /**
@@ -71,15 +79,16 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
         List<MainMenuNameBean> list = new ArrayList<>();
         String[][] array = {
                 {"自定义View", "饼形图", "支付完成", "橡皮擦", "日历"},
-                {"自定义", "圆进度条", "流式布局", "播放器", "时光轴recycler"},
+                {"自定义", "圆进度条", "流式布局", "自定义流式布局", "时光轴recycler"},
                 {"轮播", "Banner", "粘性reclcler", "XLoadingDialog", "BaseRecycler1"},
-                {"网络", "socket", "分组recycler", "", ""},
+                {"网络", "socket", "分组recycler", "美团外卖", ""},
                 {"按钮", "switch", "", "", ""},
                 {"弹窗", "PopupWindow", "alerter", "", ""},
                 {"状态栏", "状态栏", "CoordinatorLayout", "网易歌单详情", ""},
                 {"其他", "魅族通讯录", "QQ侧滑删除", "权限管理", "界面提示"},
                 {"textview", "span", "划线textview", "", ""},
                 {"动画", "基本动画", "", "", ""},
+                {"recycler", "多级展开", "", "", ""},
         };
         for (String[] anArray : array) {
             list.add(new MainMenuNameBean(anArray[0], anArray[1], anArray[2], anArray[3], anArray[4]));
@@ -125,7 +134,8 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(FlowLayoutActivity.class, null);
                         break;
                     case R.id.tv_view_three:
-                        //视频播放器
+                        //自定义流式布局
+                        launchActivity(MyFlowActivity.class, null);
                         break;
                     case R.id.tv_view_four:
                         //Recyclerview
@@ -164,6 +174,8 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(GroupRecyclerActivity.class, null);
                         break;
                     case R.id.tv_view_three:
+                        //美团外卖
+                        launchActivity(MTOutFoodActivity.class, null);
                         break;
                     case R.id.tv_view_four:
                 }
@@ -251,7 +263,21 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                 switch (view.getId()) {
                     case R.id.tv_view_one:
                         //基本动画
-                       // launchActivity(SpanActivity.class, null);
+                        launchActivity(ObjectAnimActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        break;
+                    case R.id.tv_view_three:
+                        break;
+                    case R.id.tv_view_four:
+                        break;
+                }
+                break;
+            case 10:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //多级展开
+                        launchActivity(TreeRecyviewActivity.class,null);
                         break;
                     case R.id.tv_view_two:
                         break;

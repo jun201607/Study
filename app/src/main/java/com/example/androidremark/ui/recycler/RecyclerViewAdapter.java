@@ -19,6 +19,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private Context mContext;
     private List<String> mList;
+    private int selectPosition = -1;
 
     public RecyclerViewAdapter(Context mContext) {
         this.mContext = mContext;
@@ -36,8 +37,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.textView.setText("这是内容:"+position);
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        if (selectPosition == position) {
+            holder.textView.setEnabled(true);
+        } else {
+            holder.textView.setEnabled(false);
+        }
+        holder.textView.setText("这是内容:" + position);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.OnItemClick(position);
+                    selectPosition = position; //选择的position赋值给参数，
+                    notifyDataSetChanged();//每次点击刷新布局
+                }
+            }
+        });
     }
 
     @Override
@@ -54,5 +70,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.tv_1);
         }
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener {  //定义接口，实现Recyclerview点击事件
+        void OnItemClick(int position);
+    }
+
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {   //实现点击
+        this.onItemClickListener = onItemClickListener;
     }
 }
