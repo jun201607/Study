@@ -59,7 +59,7 @@ public class GroupRecyclerActivity extends BaseActivity {
                 "{\"childList\":[{\"childName\":\"组员1\",\"openTime\":\"2017-07-06 10:05:16\"}," +
                 "{\"childName\":\"组员2\",\"openTime\":\"2017-07-06 10:05:16\"}],\"groupName\":\"分组2\"}]}}";
 
-
+        System.err.println("哈哈 "+data);
         GroupChildBean bean = new Gson().fromJson(data, GroupChildBean.class);
 
         for (GroupChildBean.ResultMsgBean.GroupListBean group : bean.getResultMsg().getGroupList()) {

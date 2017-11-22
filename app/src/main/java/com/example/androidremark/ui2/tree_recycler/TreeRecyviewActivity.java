@@ -2,6 +2,7 @@ package com.example.androidremark.ui2.tree_recycler;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.example.androidremark.R;
 import com.example.androidremark.widget.tree.TreeNode;
 import com.example.androidremark.widget.tree.TreeView;
+import com.example.androidremark.widget.tree.TreeViewAdapter;
 
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class TreeRecyviewActivity extends AppCompatActivity {
     private ViewGroup viewGroup;
     private TreeNode root;
     private TreeView treeView;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +37,27 @@ public class TreeRecyviewActivity extends AppCompatActivity {
         buildTree();
         treeView = new TreeView(root, this, new MyNodeViewFactory());
         //treeView.setItemAnimator(new DefaultItemAnimator());
-        View view = treeView.getView();
-        view.setLayoutParams(new ViewGroup.LayoutParams(
+        mRecyclerView = (RecyclerView) treeView.getView();
+        mRecyclerView.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        viewGroup.addView(view);
+        viewGroup.addView(mRecyclerView);
+        treeView.getAdapter().setOnItemClickListener(new TreeViewAdapter.OnItemClickListener() {
+            @Override
+            public void click(TreeNode treeNode) {
+                System.err.println("哈哈 ");
+                treeNode.setExpanded(!treeNode.isExpanded());
+
+                if (treeNode.isExpanded()) {
+                    //打开
+                    treeView.expandNode(treeNode);
+                    // expandNode(treeNode);
+                } else {
+                    //关闭
+                    treeView.collapseNode(treeNode);
+                    //collapseNode(treeNode);
+                }
+            }
+        });
     }
 
     private void initView() {
@@ -108,11 +128,11 @@ public class TreeRecyviewActivity extends AppCompatActivity {
                     for (int l = 0; l < 3; l++) {
                         TreeNode treeNode3 = new TreeNode(new String("第4层" + "第" + l));
                         treeNode3.setLevel(3);
-                        for (int m = 0; m < 2; m++) {
-                            TreeNode treeNode4 = new TreeNode(new String("第5层" + "第" + m));
-                            treeNode4.setLevel(4);
-                            treeNode3.addChild(treeNode4);
-                        }
+//                        for (int m = 0; m < 2; m++) {
+//                            TreeNode treeNode4 = new TreeNode(new String("第5层" + "第" + m));
+//                            treeNode4.setLevel(4);
+//                            treeNode3.addChild(treeNode4);
+//                        }
                         treeNode2.addChild(treeNode3);
                     }
                     treeNode1.addChild(treeNode2);
@@ -123,12 +143,4 @@ public class TreeRecyviewActivity extends AppCompatActivity {
         }
     }
 
-//    private void setLightStatusBar(@NonNull View view) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            int flags = view.getSystemUiVisibility();
-//            getWindow().setStatusBarColor(Color.WHITE);
-//            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-//            view.setSystemUiVisibility(flags);
-//        }
-//    }
 }

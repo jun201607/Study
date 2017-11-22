@@ -14,4 +14,17 @@
         android:scaleType="fitXY"
         android:src="@drawable/photo4" />
 
+
+    <com.example.androidremark.view.DragGridView
+        android:id="@+id/drag_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:listSelector="@color/transparent"
+        android:numColumns="5"
+        android:stretchMode="columnWidth"/>
+
 </LinearLayout>

@@ -94,6 +94,10 @@ public class TreeView implements SelectableTreeAction {
         return recyclerView;
     }
 
+    public TreeViewAdapter getAdapter() {
+        return adapter;
+    }
+
     @Override
     public void expandAll() {
         if (root == null) {

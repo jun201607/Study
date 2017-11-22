@@ -1,6 +1,8 @@
 package com.example.androidremark;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -33,9 +35,12 @@ import com.example.androidremark.ui2.baserecycler.BaseRecyclerActivity;
 import com.example.androidremark.ui2.button.SwitchButtonActivity;
 import com.example.androidremark.ui2.calendar.CalendarActivity;
 import com.example.androidremark.ui2.grouprecycler.GroupRecyclerActivity;
+import com.example.androidremark.ui2.line.LineChartActivity;
 import com.example.androidremark.ui2.meituan.MTOutFoodActivity;
+import com.example.androidremark.ui2.sinmath.SinActivity;
 import com.example.androidremark.ui2.tree_recycler.TreeRecyviewActivity;
 import com.example.androidremark.ui2.xloadingdialog.XLoadingDialogActivity;
+import com.example.androidremark.ui3.column.ColumnCharActivity;
 import com.example.androidremark.view.RounProgressActivity;
 
 import java.util.ArrayList;
@@ -81,7 +86,7 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                 {"自定义View", "饼形图", "支付完成", "橡皮擦", "日历"},
                 {"自定义", "圆进度条", "流式布局", "自定义流式布局", "时光轴recycler"},
                 {"轮播", "Banner", "粘性reclcler", "XLoadingDialog", "BaseRecycler1"},
-                {"网络", "socket", "分组recycler", "美团外卖", ""},
+                {"网络", "socket", "分组recycler", "美团外卖", "RxJava"},
                 {"按钮", "switch", "", "", ""},
                 {"弹窗", "PopupWindow", "alerter", "", ""},
                 {"状态栏", "状态栏", "CoordinatorLayout", "网易歌单详情", ""},
@@ -89,6 +94,7 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                 {"textview", "span", "划线textview", "", ""},
                 {"动画", "基本动画", "", "", ""},
                 {"recycler", "多级展开", "", "", ""},
+                {"曲线", "sin函数", "折线图", "树状图", ""},
         };
         for (String[] anArray : array) {
             list.add(new MainMenuNameBean(anArray[0], anArray[1], anArray[2], anArray[3], anArray[4]));
@@ -178,6 +184,9 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         launchActivity(MTOutFoodActivity.class, null);
                         break;
                     case R.id.tv_view_four:
+                        //RxJava
+
+                        break;
                 }
                 break;
             case 4:
@@ -277,7 +286,7 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                 switch (view.getId()) {
                     case R.id.tv_view_one:
                         //多级展开
-                        launchActivity(TreeRecyviewActivity.class,null);
+                        launchActivity(TreeRecyviewActivity.class, null);
                         break;
                     case R.id.tv_view_two:
                         break;
@@ -287,9 +296,32 @@ public class MainActivity extends BaseActivity implements MainMenuItemListener {
                         break;
                 }
                 break;
+            case 11:
+                switch (view.getId()) {
+                    case R.id.tv_view_one:
+                        //sin函数
+                        launchActivity(SinActivity.class, null);
+                        break;
+                    case R.id.tv_view_two:
+                        //折线
+                        launchActivity(LineChartActivity.class, null);
+                        break;
+                    case R.id.tv_view_three:
+                        //树状图
+                        launchActivity(ColumnCharActivity.class,null);
+                        break;
+                    case R.id.tv_view_four:
+                        break;
+                }
+                break;
             default:
                 break;
         }
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        toast("sss");
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

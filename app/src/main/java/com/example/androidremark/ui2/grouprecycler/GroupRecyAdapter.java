@@ -67,7 +67,6 @@ public class GroupRecyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        System.err.println("onBindViewHolder");
         final ChildListBean bean = mList.get(position);
         int type = holder.getItemViewType();
         if (type == GROUP_ITEM_TYPE) {

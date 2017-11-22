@@ -43,6 +43,12 @@ public class TreeNode {
         this.children = new ArrayList<>();
     }
 
+    public TreeNode(Object value,int level) {
+        this.value = value;
+        this.level = level;
+        this.children = new ArrayList<>();
+    }
+
     public static TreeNode root() {
         TreeNode treeNode = new TreeNode(null);
         return treeNode;

@@ -130,7 +130,7 @@ public class PopupTestActivity extends BaseActivity implements CommonPopupWindow
                     }
                 });
                 break;
-            case R.layout.popup_up:
+                case R.layout.popup_up:
                 Button btn_take_photo = (Button) view.findViewById(R.id.btn_take_photo);
                 Button btn_select_photo = (Button) view.findViewById(R.id.btn_select_photo);
                 Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);

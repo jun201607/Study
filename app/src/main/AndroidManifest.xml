@@ -54,8 +54,11 @@
         <activity android:name=".ui2.calendar.CalendarActivity" />
         <activity android:name=".animation.ObjectAnimActivity" />
         <activity android:name=".ui.flow.myflow.MyFlowActivity" />
-        <activity android:name=".ui2.meituan.MTOutFoodActivity"/>
-        <activity android:name=".ui2.tree_recycler.TreeRecyviewActivity"/>
+        <activity android:name=".ui2.meituan.MTOutFoodActivity" />
+        <activity android:name=".ui2.tree_recycler.TreeRecyviewActivity" />
+        <activity android:name=".ui2.sinmath.SinActivity" />
+        <activity android:name=".ui2.line.LineChartActivity" />
+        <activity android:name=".ui3.column.ColumnCharActivity"></activity>
     </application>
 
 </manifest>

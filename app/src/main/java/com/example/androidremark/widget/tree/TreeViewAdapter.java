@@ -107,6 +107,17 @@ public class TreeViewAdapter extends RecyclerView.Adapter {
         return nodeViewBinder;
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+
+    public interface OnItemClickListener {
+        void click(TreeNode treeNode);
+    }
+
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         final View nodeView = holder.itemView;
@@ -120,7 +131,9 @@ public class TreeViewAdapter extends RecyclerView.Adapter {
                 triggerToggleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        onNodeToggled(treeNode);
+                        if (onItemClickListener != null)
+                            onItemClickListener.click(treeNode);
+                        //onNodeToggled(treeNode);
                         viewBinder.onNodeToggled(treeNode, treeNode.isExpanded());
                     }
                 });
@@ -129,7 +142,9 @@ public class TreeViewAdapter extends RecyclerView.Adapter {
             nodeView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onNodeToggled(treeNode);
+                    if (onItemClickListener != null)
+                        onItemClickListener.click(treeNode);
+                    //onNodeToggled(treeNode);
                     viewBinder.onNodeToggled(treeNode, treeNode.isExpanded());
                 }
             });

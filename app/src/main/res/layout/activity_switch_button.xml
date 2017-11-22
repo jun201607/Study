@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     android:orientation="vertical"
     android:padding="20dp">
@@ -10,45 +10,54 @@
         android:id="@+id/switch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp" />
 
     <com.example.androidremark.ui2.button.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:sb_checked="true"/>
+        app:sb_checked="true" />
 
 
     <com.example.androidremark.ui2.button.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:sb_show_indicator="false"
-        app:sb_checked="true"/>
+        app:sb_checked="true"
+        app:sb_show_indicator="false" />
 
     <com.example.androidremark.ui2.button.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:sb_checked_color="#fdc951"
-        app:sb_checked="true"/>
+        app:sb_checked="true"
+        app:sb_checked_color="#fdc951" />
 
     <com.example.androidremark.ui2.button.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:sb_button_color="#db99c7"
-        app:sb_shadow_color="#A36F95"
         app:sb_background="#FFF"
-        app:sb_checkline_color="#a5dc88"
+        app:sb_button_color="#db99c7"
         app:sb_checked_color="#A36F95"
-        app:sb_uncheckcircle_color="#A36F95"
-        />
+        app:sb_checkline_color="#a5dc88"
+        app:sb_shadow_color="#A36F95"
+        app:sb_uncheckcircle_color="#A36F95" />
 
     <com.example.androidremark.ui2.button.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:sb_enable_effect="false"/>
+        app:sb_enable_effect="false" />
+
+    <com.example.androidremark.view.HorizontalProgressView
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:max="100"
+        android:progress="50"
+        app:progressNormalSize="10dp"
+        app:progressReachSize="10dp"
+        app:progressTextVisible="true" />
 
 </LinearLayout>
